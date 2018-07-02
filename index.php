@@ -34,6 +34,6 @@
                 <input type=\"text\" name=\"correction\"><br>
                 <input type=\"submit\">
             </form>
-            <img src=\"".$url_input."\" style=\"max-width=100px; max-height=100px;\"/>";
+            <img src=\"".$url_input."\"/>";
     }
 ?>
