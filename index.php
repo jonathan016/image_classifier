@@ -1,6 +1,7 @@
 <?php
     $url_input = $_POST['url_input'];
     
+    // Get file extension from URL
     $reversed = strrev($url_input);
     $extension = "";
     for ($i=0; $i < strlen($url_input); $i++) { 
@@ -14,10 +15,13 @@
     $extension = strrev($extension);
     $extension = '.' . $extension;
 
+    // Download the image
     shell_exec("python image-saver.py " . $url_input . " holder img");
 
+    // Get the label of the image
     $result = shell_exec("python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=tf_files/training_images/holder/img" . $extension);
     
+    // Output confirmation based on label of the image
     if($result == ""){
         echo "We are sorry, but we could not identify what that image is as of right now. Please fill the image category below:
             <form action=\"correction.php\" method=\"POST\">

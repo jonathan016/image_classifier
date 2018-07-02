@@ -1,3 +1,4 @@
+chair
 circle
 daisy
 dandelion
